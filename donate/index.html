@@ -5,15 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Donate — The Rigel Family Professorship in Skin Cancer</title>
   <meta name="robots" content="noindex">
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9XJ2JBSWQ6"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-9XJ2JBSWQ6');
-  </script>
   <script>
     var dest = new URL('https://give.utsouthwestern.edu/campaigns/77765/donations/new');
     var params = new URLSearchParams(location.search);
@@ -23,14 +14,21 @@
     }
     params.forEach(function(value, key) { dest.searchParams.set(key, value); });
 
-    var redirected = false;
-    function go() {
-      if (redirected) return;
-      redirected = true;
-      location.replace(dest.toString());
-    }
-    gtag('event', 'donate_redirect', { event_callback: go, event_timeout: 1000 });
-    setTimeout(go, 1500);
+    var ga = document.cookie.match(/_ga=GA\d+\.\d+\.(\d+\.\d+)/);
+    var cid = ga ? ga[1] : Math.floor(Math.random() * 1e9) + '.' + Math.floor(Date.now() / 1000);
+    var hit = new URLSearchParams({
+      v: '2',
+      tid: 'G-9XJ2JBSWQ6',
+      cid: cid,
+      sid: String(Math.floor(Date.now() / 1000)),
+      _p: String(Date.now()),
+      en: 'page_view',
+      dl: location.href,
+      dt: document.title
+    });
+    navigator.sendBeacon('https://www.google-analytics.com/g/collect?' + hit.toString());
+
+    location.replace(dest.toString());
   </script>
   <noscript>
     <meta http-equiv="refresh" content="0;url=https://give.utsouthwestern.edu/campaigns/77765/donations/new?utm_source=rigelprofessorship.com&utm_medium=redirect">
