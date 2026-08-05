@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donate — The Rigel Family Professorship in Skin Cancer</title>
+  <meta name="robots" content="noindex">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-9XJ2JBSWQ6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-9XJ2JBSWQ6');
+  </script>
+  <script>
+    var dest = new URL('https://give.utsouthwestern.edu/campaigns/77765/donations/new');
+    var params = new URLSearchParams(location.search);
+    if (!params.has('utm_source')) {
+      params.set('utm_source', 'rigelprofessorship.com');
+      params.set('utm_medium', 'redirect');
+    }
+    params.forEach(function(value, key) { dest.searchParams.set(key, value); });
+
+    var redirected = false;
+    function go() {
+      if (redirected) return;
+      redirected = true;
+      location.replace(dest.toString());
+    }
+    gtag('event', 'donate_redirect', { event_callback: go, event_timeout: 1000 });
+    setTimeout(go, 1500);
+  </script>
+  <noscript>
+    <meta http-equiv="refresh" content="0;url=https://give.utsouthwestern.edu/campaigns/77765/donations/new?utm_source=rigelprofessorship.com&utm_medium=redirect">
+  </noscript>
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #faf9f7;
+      color: #2c2c2c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <p>Taking you to the donation page&hellip;<br>
+  <a href="https://give.utsouthwestern.edu/campaigns/77765/donations/new?utm_source=rigelprofessorship.com&utm_medium=redirect">Continue if you are not redirected</a></p>
+</body>
+</html>
